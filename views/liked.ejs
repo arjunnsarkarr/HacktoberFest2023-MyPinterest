@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <H1>hello</H1>
+    
+   <% for( i=0; i < userLiked.length;i++){ %>
+        <%= userLiked[i].username %>
+        <img src="images/uploads/<%= userLiked[i].photo %>" alt="">
+        
+   <% } %>
+</body>
+</html>

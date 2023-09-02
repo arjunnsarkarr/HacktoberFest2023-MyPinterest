@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #posts {
+            height: 250px;
+            width: 250px;
+            object-fit: cover;
+        }
+        #postBorder{
+            border : solid black ;
+            width: fit-content;
+            padding: 10px;
+            margin: 15px;
+        }
+        #liked{
+            font-size: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Explore</h1>
+    <% for(i=0; i < all.length;i++){ %>
+        <% all[i].photo.slice().reverse().forEach((photo,j)=>{ %>
+            <% if(j<2) {%>
+                <div id="postBorder">
+                    <h1>
+                        <%= all[i].username%>
+                    </h1>
+                    <img id="posts" class="foto" src="images/uploads/<%= photo %> ">
+                
+                    <div id="liked">
+                        👍 
+                    </div>
+
+                </div>
+                
+                
+
+                <% } %>
+                    <% }) %>
+                        <% } %>
+
+
+</body>
+
+</html>
