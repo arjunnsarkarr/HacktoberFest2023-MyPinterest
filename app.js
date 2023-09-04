@@ -18,7 +18,7 @@ var app = express();
 // passport setup
 app.use(expressSession({
   resave: false,
-  saveUninstalized: false,
+  saveUninstalized: true,
   secret: 'arjun sarkar'
 }));
 
