@@ -1,17 +1,29 @@
 var mongoose = require("mongoose");
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 var passportLocalMongoose = require("passport-local-mongoose");
-mongoose.connect('mongodb://127.0.0.1:27017/myPinterest1');
+// mongoose.connect('mongodb://127.0.0.1:27017/myPinterest1');
 
+var path = require("path");
+require("dotenv").config({ path: "./.env" });
+mongoose
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("MongoDB connection error men:", error);
+  });
 
 var usersSchema = mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  photo: [{type:String}],
-  savedPhotos :[{ type:Object }]
-})
-
+  photo: [{ type: String }],
+  savedPhotos: [{ type: Object }],
+});
 
 usersSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model('user', usersSchema);
+module.exports = mongoose.model("user", usersSchema);

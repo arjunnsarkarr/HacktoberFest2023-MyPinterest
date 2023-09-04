@@ -72,6 +72,7 @@ router.get('/create', function (req, res, next) {
   res.render('create');
 });
 
+
 router.post('/created', function (req, res, next) {
   var data = new userModel({
     username: req.body.username,
