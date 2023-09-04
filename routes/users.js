@@ -6,10 +6,7 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var path = require("path");
 require("dotenv").config({ path: "./.env" });
 mongoose
-  .connect(process.env.MONGO_DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_DB)
   .then(() => {
     console.log("Connected to MongoDB");
   })
